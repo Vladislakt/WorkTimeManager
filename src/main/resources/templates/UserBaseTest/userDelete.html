@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Пользователи</title>
+</head>
+<body>
+<h1>Удаление пользователя</h1>
+
+<form th:action="@{/users/delete(id=${user.id})}" method="post">
+  <div>
+    <p th:text="'Имя: ' + ${user.name}"></p>
+  </div>
+  <div>
+    <p th:text="'Дата рождения: ' + ${user.birth}"></p>
+  </div>
+  <div>
+    <p th:text="'Email: ' + ${user.email}"></p>
+  </div>
+
+  <button type="submit">Удалить</button>
+</form>
+
+<br/>
+<a href="/users">Назад к списку</a>
+</body>
+</html>

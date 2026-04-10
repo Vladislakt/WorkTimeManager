@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Пользователи</title>
+</head>
+<body>
+<h1>Создание нового пользователя</h1>
+
+<div th:if="${error}" class="error" th:text="${error}"></div>
+
+<form action="/users/create" method="post">
+  <div>
+    <label for="name">Имя:</label>
+    <input type="text" id="name" name="name"
+           th:value="${name}" required/>
+  </div>
+
+  <div>
+    <label for="birth">Дата рождения:</label>
+    <input type="date" id="birth" name="birth"
+           th:value="${birth}" required/>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email"
+           th:value="${email}" required/>
+  </div>
+
+  <button type="submit">Сохранить</button>
+</form>
+
+<br/>
+<a href="/users">Назад к списку</a>
+</body>
+</html>
