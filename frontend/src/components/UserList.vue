@@ -2,7 +2,7 @@
   <div>
     <h1>Пользователи</h1>
 
-    <router-link to="/create">Добавить пользователя</router-link>
+    <button @click="createUser">Добавить пользователя</button>
 
     <table v-if="users.length > 0">
       <thead>
@@ -23,7 +23,7 @@
           <td>{{ user.birth }}</td>
           <td>{{ user.age }}</td>
           <td>
-            <router-link :to="`/edit/${user.id}`">Редактировать</router-link>
+            <button @click="updateUser(user.id)">Редактировать</button>
             <button @click="confirmDelete(user)">Удалить</button>
           </td>
         </tr>
@@ -72,6 +72,12 @@ export default {
       if (confirm(`Удалить пользователя ${user.name}?`)) {
         this.deleteUser(user.id)
       }
+    },
+    createUser() {
+      this.$router.push("/create")
+    },
+    updateUser(id) {
+      this.$router.push("/update/" + id)
     }
   }
 }
